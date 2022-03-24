@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <!--Directivas de Atributos ngClass, ngStyle
+        Directiva de Estructura ngIf, ngFor -->
+        <br>
+        <p *ngIf="name">El nombre es:{{name}}</p>
+        <input type="text" [(ngModel)]="name">
+        <!-- <ul *ngFor="let city of cities">
+          ** NgClass pasando un string **
+          <li [ngClass]="'selected blue'">{{city}}</li>
+          ** NgClass pasando un Array de String **
+          <li [ngClass]="['selected','blue']">{{city}}</li>
+          ** NgClass pasando un Objeto **
+          <li [ngClass]="{'selected': city==='Cucuta','blue':city!=='Medellin'}">{{city}}</li>
+        </ul>
+        <ul *ngFor="let city of cities">
+          NgStyle no es recomendable usarlo en el html, serían stilos en el html
+          <li [ngStyle]="{'color':'white', 'background-color': city==='Cucuta' ? 'red' :'green'}">{{city}}</li>
+        </ul> -->
+        <ul *ngFor="let city of cities">
+          <!--NgStyle no es recomendable usarlo en el html, serían stilos en el html-->
+          <li (click)="onCityClicked(city)" [ngClass]="{'selected': city==='selection'}">{{city}}</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div *ngIf="selection">
+          <p>Your city is: {{selection}}</p>
+          <!-- <button (click)="onClear()" *ngIf="selection">Clear your selection</button><br><br> -->
+          <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear your selection'"></app-button>
+        </div>
+      </div>
+    </div>
+  </div>
