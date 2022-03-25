@@ -1,0 +1,31 @@
+<h1>Contact form</h1>
+<form #contactForm="ngForm">
+    <div class="mb-4">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name">
+        <div class="invalid-feeback">This field is required.</div>
+    </div>
+    <div class="mb-4" form-check>
+        <label for="checkAdult" class="form-label">Are you over 18 years of age?</label>
+        <input type="checkbox" class="form-check" id="checkAdult">
+        <div class="invalid-feeback">This field is required.</div>
+    </div>
+    <div class="mb-4">
+        <label for="department" class="form-label">Department</label>
+        <select name="department" id="department" class="form-select form-select-sm">
+            <option value="marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+            <option value="Others">Others</option>
+        </select>
+        <div class="invalid-feeback">This field is required.</div>
+    </div>
+    <div class="mb-4">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea class="form-control" name="comment" id="comment" cols="30" rows="4" placeholder="Leave a comment."></textarea>
+        <div class="invalid-feeback">This field is required.</div>
+    </div>
+    <div class="d-grid gap-2 col-4 float-end">
+        <button type="submit" class="btn btn-info btn-lg">Send</button>
+    </div>
+</form>
+<pre>{{contactForm | json }}</pre>
